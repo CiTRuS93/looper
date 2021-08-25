@@ -1,23 +1,30 @@
-import {useState} from "react";
 import Grid from "@material-ui/core/Grid";
 import AudioButton from "./AudioButton";
 const randomColor = require('randomcolor');
+/**
+ * Manage all the sounds and loops
+ * @param {prop.paths:array of audio} prop 
+ * @returns 
+ */
 export default function SoundGrid(prop){
-    // const sounds = prop.paths.map((path)=>new Audio(path))
+    
     let playing = false
     let soundDict = {}
     let index= 0
     let playableSound = []
     function pauseAll(){
-        // playing = false
+        
         playableSound.forEach((sound=> {sound.audio.pause()
         sound.audio.currentTime = 0
         }))
 
     }
+    /**
+     * Start playing all the active buttons
+     */
     function playAll(){
-        console.log(playing)
-        // if(playing){
+        
+        
 
 
             playableSound.forEach((sound)=> {
@@ -30,7 +37,7 @@ export default function SoundGrid(prop){
             playing = playableSound.length>0
 
     }
-    console.log(prop.paths)
+    
     for (const path of prop.paths) {
         let name = path.split("/")
         name = name[name.length - 1].split(".")[0]
@@ -39,15 +46,18 @@ export default function SoundGrid(prop){
 
         index++
 
-    }
-    console.log(soundDict)
+    }   
     async function checkPlays(){
 
         playing = playableSound.length > 0
     }
+    /**
+     * Activate or disable audio
+     * @param {*} v id of the audio
+     */
     function onSoundClick(v){
-        // let v = e.currentTarget.value
-        console.log(soundDict[v],v)
+        
+        console.log(prop.paths)
         const found = playableSound.find(sound => sound.id === v)
         if(found){
             soundDict[v].audio.pause()
@@ -95,8 +105,13 @@ export default function SoundGrid(prop){
                 </Grid>
             </Grid>
         </Grid>
-        <button onClick={pauseAll}>pause</button>
-        <button onClick={playAll}>play</button></div>
+        
+        <button className="Stop" onClick={pauseAll}>pause</button>
+        
+        
+        <button className="Play" onClick={playAll}>play</button>
+        
+        </div>
     )
 
 

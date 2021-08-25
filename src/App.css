@@ -33,6 +33,23 @@
   color: #61dafb;
 }
 
+.AudioButton{
+  border: none;
+  box-shadow:0 0 4px 2px rgba(0,0,0,.2);
+  overflow:hidden;
+  cursor: pointer;
+  
+  height: 10vh;
+  outline: none;
+  border-radius: 15%;
+  /*  */
+  width: 10vh
+
+}
+
+.AudioButton:active{
+  transform: translateY(2px); 
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

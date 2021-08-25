@@ -2,7 +2,7 @@
   "name": "looper",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://CiTRuS93.github.io/looper",
+  "homepage": "https://citrus93.github.io/looper/",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@reduxjs/toolkit": "^1.6.1",

@@ -1,32 +1,32 @@
 import {useState} from "react";
-
+/**
+ * AudioButton 	visualization for the pad's buttons
+ * @param {prop.value: audio id in the soundGrid,
+ * 
+ *          prop.color: hex color of the button} prop 
+ * @returns 
+ */
 export default function AudioButton(prop) {
 
     const [color, setColor] = useState(false);
 
 
     return (
-
-        <button
+        <div className="box">
+        <button className="AudioButton"
             onClick={() => {
                 prop.onClick(prop.value);
                 setColor(!color)
             }}
             style={{
-                border: "none",
+                
                 background: color ?"radial-gradient( white,"+prop.color+")":prop.color,
-                boxShadow: "0 0 4px 2px rgba(0,0,0,.2)",
-                overflow:"hidden",
-                cursor: "pointer",
                 color:color?"black":"white",
-                height: "10vh",
-                outline: "none",
-                borderRadius: "15%",
-                width: "10vh"
+                
             }}
-        >
+        >   
             {prop.text}
-            {/* <PlayPause buttonToShow={showPlayButton ? "play" : "pause"} /> */}
-        </button>
+            
+        </button></div>
     )
 }
